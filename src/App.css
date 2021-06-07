@@ -9,10 +9,86 @@
   padding: 60px 15px 0;
 }
 
+.column-icon{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 4rem;
+  height: 4rem;
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  color: #fff;
+  border-radius: .75rem;
+}
+
 .footer {
   position: absolute;
   bottom: 0;
   width: 100%;
   height: 60px;
   line-height: 60px;
+}
+
+.footer-block{
+  padding: 0 1rem;
+  text-align: center;
+}
+
+.footer-block p{
+  margin: unset;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  padding: 3.5rem 0 0;
+  box-shadow: inset -1px 0 0 rgb(0 0 0 / 10%);
+}
+
+.sidebar .nav-link {
+  font-weight: 500;
+  color: #333;
+}
+
+.sidebar .nav-link.active {
+  color: #007bff;
+}
+
+.nav-button {
+  margin: 0;
+  width: 100%;
+  text-align: left;
+  border: unset;
+  background-color: unset;
+  font-size: .875rem;
+  font-weight: 500;
+}
+
+.nav-icon{
+  width: 1em;
+  height: 1em;
+  margin-right: 4px;
+  margin-bottom: 0.25em;
+  vertical-align: center;
+}
+
+.navbar .navbar-toggler {
+  top: .25rem;
+  right: 1rem;
+}
+
+.navbar-brand {
+  padding-top: .75rem;
+  padding-bottom: .75rem;
+  font-size: 1rem;
+  background-color: rgba(0, 0, 0, .25);
+  box-shadow: inset -1px 0 0 rgb(0 0 0 / 25%);
+}
+
+.brand-button {
+  border: unset;
+  background-color: unset;
 }
