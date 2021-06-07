@@ -2,11 +2,14 @@ import React from "react";
 import {ScreenNames} from "../App";
 import {ReactComponent as HomeIcon} from "./users-home.svg";
 import {ReactComponent as ReportsIcon} from "./reports.svg";
+import {ReactComponent as AddUserIcon} from "./users.svg";
 import UsersDashboard from "./UsersDashboard";
+import NewUser from "./NewUser";
 
 enum UserMenu {
-    dashboard = 0,
-    reports = 1
+    dashboard,
+    addUser,
+    reports
 }
 
 type Props = {
@@ -33,6 +36,17 @@ class UsersView extends React.Component<Props, State> {
     }
 
     render() {
+        let activeView;
+        switch (this.state.activeUserMenu) {
+            case UserMenu.dashboard:
+                activeView = <UsersDashboard/>;
+                break;
+            case UserMenu.addUser:
+                activeView = <NewUser/>;
+                break;
+            default:
+        }
+
         return (
             <div className="container-fluid">
                 <div className="row">
@@ -54,6 +68,19 @@ class UsersView extends React.Component<Props, State> {
                                 </li>
                                 <li className="nav-item">
                                     <button
+                                        className={"nav-link nav-button " + (this.state.activeUserMenu === UserMenu.addUser ? "active" : "")}
+                                        onClick={() => {
+                                            this.setActiveMenu(UserMenu.addUser)
+                                        }}
+                                    >
+                                        <svg className="nav-icon">
+                                            <AddUserIcon/>
+                                        </svg>
+                                        Add user
+                                    </button>
+                                </li>
+                                <li className="nav-item">
+                                    <button
                                         className={"nav-link nav-button " + (this.state.activeUserMenu === UserMenu.reports ? "active" : "")}
                                         onClick={() => {
                                             this.setActiveMenu(UserMenu.reports)
@@ -68,9 +95,7 @@ class UsersView extends React.Component<Props, State> {
                             </ul>
                         </div>
                     </nav>
-                    {this.state.activeUserMenu === UserMenu.dashboard && (
-                        <UsersDashboard/>
-                    )}
+                    {activeView}
                 </div>
             </div>
         );
